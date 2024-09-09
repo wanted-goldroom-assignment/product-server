@@ -1,5 +1,9 @@
 package wanted.goldroom.product.domain.price;
 
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +25,9 @@ public class Price {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
+    @CreatedDate
+    private LocalDateTime createdAt;
     private int salePrice;
     private int buyPrice;
 
