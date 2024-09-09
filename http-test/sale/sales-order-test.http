@@ -1,0 +1,9 @@
+### 판매 등록 요청
+POST http://localhost:9999/api/sales-order
+Content-Type: application/json
+
+{
+  "userToken": "fwee112f3gb6bny5",
+  "salesQuantity": 10.2,
+  "type": "금 99.9%"
+}
