@@ -8,9 +8,9 @@ public class SaleDto {
     public record RegisterSaleOrderRequest(
         @NotBlank
         String userToken,
-        @NotNull
+        @NotNull(message = "수량을 입력해주세요.")
         double salesQuantity,
-        @NotNull
+        @NotBlank(message = "판매물품을 지정해 주세요.")
         String type
     ) {
 
