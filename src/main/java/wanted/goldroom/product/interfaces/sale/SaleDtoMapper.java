@@ -20,4 +20,8 @@ public interface SaleDtoMapper {
     SaleDto.RegisterSaleOrderResponse of(SaleInfo.RegisterSaleInfo info);
 
     SaleCommand.DetailSalesOrderList of(String userToken, int size, LocalDateTime cursor);
+
+    SaleCommand.DetailSalesOrder of(String orderNo);
+
+    SaleDto.DetailsSaleOrderResponse of(SaleInfo.DetailSaleOrder info);
 }

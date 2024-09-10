@@ -29,4 +29,10 @@ public class SaleCommand {
     ) {
 
     }
+
+    public record DetailSalesOrder(
+        String orderNo
+    ) {
+
+    }
 }

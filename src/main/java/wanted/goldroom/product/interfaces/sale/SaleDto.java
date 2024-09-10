@@ -1,5 +1,7 @@
 package wanted.goldroom.product.interfaces.sale;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -18,6 +20,18 @@ public class SaleDto {
 
     public record RegisterSaleOrderResponse(
         String orderNo
+    ) {
+
+    }
+
+    public record DetailsSaleOrderResponse(
+        String orderNo,
+        LocalDateTime createdAt,
+        String seller,
+        String status,
+        String type,
+        double saleQuantity,
+        int amount
     ) {
 
     }
