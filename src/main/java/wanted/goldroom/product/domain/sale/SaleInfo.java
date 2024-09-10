@@ -17,7 +17,7 @@ public class SaleInfo {
     }
 
     @Getter
-    public static class DetailSaleOrders {
+    public static class DetailSaleOrderList {
         private String orderNo;
         private LocalDateTime createdAt;
         private String seller;
