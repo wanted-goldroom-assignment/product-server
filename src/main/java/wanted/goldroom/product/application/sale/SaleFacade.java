@@ -10,6 +10,7 @@ import wanted.goldroom.product.domain.price.PriceService;
 import wanted.goldroom.product.domain.sale.SaleCommand;
 import wanted.goldroom.product.domain.sale.SaleInfo;
 import wanted.goldroom.product.domain.sale.SaleService;
+import wanted.goldroom.product.infrastructure.common.util.CustomSlice;
 
 @Service
 @RequiredArgsConstructor
@@ -23,5 +24,9 @@ public class SaleFacade {
         Item item = itemService.findByType(type);
         Price price = priceService.findLatestPrice();
         return saleService.registerSale(command, item, price);
+    }
+
+    public CustomSlice<SaleInfo.DetailSaleOrderList> detailsSaleOrders(SaleCommand.DetailSalesOrders command) {
+        return saleService.detailsSales(command);
     }
 }

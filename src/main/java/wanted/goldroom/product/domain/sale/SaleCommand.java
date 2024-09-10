@@ -1,5 +1,7 @@
 package wanted.goldroom.product.domain.sale;
 
+import java.time.LocalDateTime;
+
 import wanted.goldroom.product.domain.item.Item;
 
 public class SaleCommand {
@@ -18,5 +20,13 @@ public class SaleCommand {
                 .salePrice(salePrice)
                 .build();
         }
+    }
+
+    public record DetailSalesOrders(
+        String userToken,
+        int size,
+        LocalDateTime cursor
+    ) {
+
     }
 }

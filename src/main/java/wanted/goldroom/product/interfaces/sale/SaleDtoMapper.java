@@ -1,5 +1,7 @@
 package wanted.goldroom.product.interfaces.sale;
 
+import java.time.LocalDateTime;
+
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -16,4 +18,6 @@ public interface SaleDtoMapper {
     SaleCommand.RegisterSalesOrder of(SaleDto.RegisterSaleOrderRequest request);
 
     SaleDto.RegisterSaleOrderResponse of(SaleInfo.RegisterSaleInfo info);
+
+    SaleCommand.DetailSalesOrders of(String userToken, int size, LocalDateTime cursor);
 }
