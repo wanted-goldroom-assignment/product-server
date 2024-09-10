@@ -24,7 +24,7 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public CustomSlice<SaleInfo.DetailSaleOrders> detailsSales(SaleCommand.DetailSalesOrders command) {
+    public CustomSlice<SaleInfo.DetailSaleOrders> detailsSaleList(SaleCommand.DetailSalesOrderList command) {
         return saleReader.findAllDetails(command.userToken(), command.size(), command.cursor());
     }
 }
