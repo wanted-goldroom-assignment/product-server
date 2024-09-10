@@ -2,7 +2,6 @@ package wanted.goldroom.product.domain.sale;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
 import wanted.goldroom.product.domain.item.Item;
 
 public class SaleInfo {
@@ -16,14 +15,15 @@ public class SaleInfo {
         }
     }
 
-    @Getter
-    public static class DetailSaleOrders {
-        private String orderNo;
-        private LocalDateTime createdAt;
-        private String seller;
-        private Sale.Status status;
-        private Item.Type type;
-        private double saleQuantity;
-        private int amount;
+    public record DetailSaleOrderList(
+        String orderNo,
+        LocalDateTime createdAt,
+        String seller,
+        Sale.Status status,
+        Item.Type type,
+        double saleQuantity,
+        int amount
+    ) {
+
     }
 }

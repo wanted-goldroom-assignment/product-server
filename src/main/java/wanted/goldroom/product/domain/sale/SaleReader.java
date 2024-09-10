@@ -6,5 +6,5 @@ import wanted.goldroom.product.infrastructure.common.util.CustomSlice;
 
 public interface SaleReader {
 
-    CustomSlice<SaleInfo.DetailSaleOrders> findAllDetails(String userToken, int size, LocalDateTime cursor);
+    CustomSlice<SaleInfo.DetailSaleOrderList> findAllDetails(String userToken, int size, LocalDateTime cursor);
 }

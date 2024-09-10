@@ -17,13 +17,13 @@ public class SaleReaderImpl implements SaleReader {
     private final SalePaginationRepository paginationRepository;
 
     @Override
-    public CustomSlice<SaleInfo.DetailSaleOrders> findAllDetails(String userToken, int size,
+    public CustomSlice<SaleInfo.DetailSaleOrderList> findAllDetails(String userToken, int size,
         LocalDateTime cursor) {
-        Slice<SaleInfo.DetailSaleOrders> paginationList
+        Slice<SaleInfo.DetailSaleOrderList> paginationList
             = paginationRepository.findByUserToken(userToken, size, cursor);
 
-        List<SaleInfo.DetailSaleOrders> orders = paginationList.getContent();
-        LocalDateTime nextCursor = orders.isEmpty() ? null : orders.get(orders.size() - 1).getCreatedAt();
+        List<SaleInfo.DetailSaleOrderList> orders = paginationList.getContent();
+        LocalDateTime nextCursor = orders.isEmpty() ? null : orders.get(orders.size() - 1).createdAt();
 
         return new CustomSlice<>(orders, nextCursor, paginationList.hasNext());
 

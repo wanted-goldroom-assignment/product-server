@@ -21,9 +21,9 @@ public class SalePaginationRepository {
     private final SaleRepository saleRepository;
     private final JPAQueryFactory queryFactory;
 
-    public Slice<SaleInfo.DetailSaleOrders> findByUserToken(String userToken, int size, LocalDateTime cursor) {
-        List<SaleInfo.DetailSaleOrders> orders = queryFactory.select(
-                Projections.fields(SaleInfo.DetailSaleOrders.class,
+    public Slice<SaleInfo.DetailSaleOrderList> findByUserToken(String userToken, int size, LocalDateTime cursor) {
+        List<SaleInfo.DetailSaleOrderList> orders = queryFactory.select(
+                Projections.constructor(SaleInfo.DetailSaleOrderList.class,
                     sale.orderNo,
                     sale.createdAt,
                     sale.seller.as("userToken"),
