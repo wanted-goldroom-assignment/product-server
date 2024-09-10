@@ -26,7 +26,7 @@ public class SaleFacade {
         return saleService.registerSale(command, item, price);
     }
 
-    public CustomSlice<SaleInfo.DetailSaleOrderList> detailsSaleOrderList(SaleCommand.DetailSalesOrderList command) {
+    public CustomSlice<SaleInfo.DetailSaleOrderList> detailsSaleOrders(SaleCommand.DetailSalesOrders command) {
         return saleService.detailsSaleList(command);
     }
 

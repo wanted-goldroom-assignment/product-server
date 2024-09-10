@@ -27,7 +27,7 @@ public class SaleReaderImpl implements SaleReader {
             = paginationRepository.findByUserToken(userToken, size, cursor);
 
         List<SaleInfo.DetailSaleOrderList> orders = paginationList.getContent();
-        LocalDateTime nextCursor = orders.isEmpty() ? null : orders.get(orders.size() - 1).getCreatedAt();
+        LocalDateTime nextCursor = orders.isEmpty() ? null : orders.get(orders.size() - 1).createdAt();
 
         return new CustomSlice<>(orders, nextCursor, paginationList.hasNext());
     }

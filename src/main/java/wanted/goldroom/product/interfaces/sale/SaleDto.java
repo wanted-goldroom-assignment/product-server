@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import wanted.goldroom.product.domain.sale.SaleInfo;
 
 public class SaleDto {
 
@@ -24,7 +25,7 @@ public class SaleDto {
 
     }
 
-    public record DetailsSaleOrderResponse(
+    public record DetailsSaleOrderListResponse(
         String orderNo,
         LocalDateTime createdAt,
         String seller,
@@ -34,5 +35,15 @@ public class SaleDto {
         int amount
     ) {
 
+        public static DetailsSaleOrderListResponse from(SaleInfo.DetailSaleOrderList list) {
+            return new DetailsSaleOrderListResponse(
+                list.orderNo(),
+                list.createdAt(),
+                list.seller(),
+                list.status().getDescription(),
+                list.type().getProduct(),
+                list.saleQuantity(),
+                list.amount());
+        }
     }
 }

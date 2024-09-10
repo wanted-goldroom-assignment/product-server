@@ -23,7 +23,7 @@ public class SalePaginationRepository {
 
     public Slice<SaleInfo.DetailSaleOrderList> findByUserToken(String userToken, int size, LocalDateTime cursor) {
         List<SaleInfo.DetailSaleOrderList> orders = queryFactory.select(
-                Projections.fields(SaleInfo.DetailSaleOrderList.class,
+                Projections.constructor(SaleInfo.DetailSaleOrderList.class,
                     sale.orderNo,
                     sale.createdAt,
                     sale.seller.as("userToken"),
