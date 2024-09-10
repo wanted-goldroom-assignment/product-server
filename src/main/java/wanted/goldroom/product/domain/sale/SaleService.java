@@ -8,5 +8,7 @@ public interface SaleService {
 
     SaleInfo.RegisterSaleInfo registerSale(SaleCommand.RegisterSalesOrder command, Item item, Price price);
 
-    CustomSlice<SaleInfo.DetailSaleOrderList> detailsSales(SaleCommand.DetailSalesOrders command);
+    CustomSlice<SaleInfo.DetailSaleOrderList> detailsSaleList(SaleCommand.DetailSalesOrderList command);
+
+    SaleInfo.DetailSaleOrder detailsSale(SaleCommand.DetailSalesOrder command);
 }

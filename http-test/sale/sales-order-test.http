@@ -9,6 +9,9 @@ Content-Type: application/json
 }
 
 ### 판매목록 조회
-GET http://localhost:9999/api/sales-order/history?userToken=fwee112f3gb6bny5
+GET http://localhost:9999/api/sales-order/history/list?userToken=fwee112f3gb6bny5
 Content-Type: application/json
 
+### 판매 상세 조회
+GET http://localhost:9999/api/sales-order/history?orderNo=20240909205003_d6aLfGvLfy
+Content-Type: application/json

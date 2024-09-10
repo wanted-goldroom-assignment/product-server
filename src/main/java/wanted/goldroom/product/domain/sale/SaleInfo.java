@@ -26,4 +26,25 @@ public class SaleInfo {
     ) {
 
     }
+
+    public record DetailSaleOrder(
+        String orderNo,
+        LocalDateTime createdAt,
+        String seller,
+        String status,
+        String type,
+        double saleQuantity,
+        int amount
+    ) {
+
+        public DetailSaleOrder(Sale sale) {
+            this(sale.getOrderNo(),
+                sale.getCreatedAt(),
+                sale.getSeller(),
+                sale.getStatus().getDescription(),
+                sale.getItem().getType().getProduct(),
+                sale.getSaleQuantity(),
+                sale.getAmount());
+        }
+    }
 }

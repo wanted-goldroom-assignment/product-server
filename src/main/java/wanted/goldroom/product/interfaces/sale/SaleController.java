@@ -33,14 +33,23 @@ public class SaleController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/history")
+    @GetMapping("/history/list")
     public ResponseEntity<CustomSlice<SaleDto.DetailsSaleOrderListResponse>> detailsSalesOrders(
         @RequestParam(name = "userToken") String userToken,
         @RequestParam(required = false, defaultValue = "10") int size,
         @RequestParam(required = false) LocalDateTime cursor) {
-        SaleCommand.DetailSalesOrders command = mapper.of(userToken, size, cursor);
+        SaleCommand.DetailSalesOrderList command = mapper.of(userToken, size, cursor);
         CustomSlice<SaleInfo.DetailSaleOrderList> info = saleFacade.detailsSaleOrders(command);
         var response = info.map(SaleDto.DetailsSaleOrderListResponse::from);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<SaleDto.DetailsSaleOrderResponse> detailsSalesOrder(
+        @RequestParam String orderNo) {
+        SaleCommand.DetailSalesOrder command = mapper.of(orderNo);
+        SaleInfo.DetailSaleOrder info = saleFacade.detailsSaleOrder(command);
+        SaleDto.DetailsSaleOrderResponse response = mapper.of(info);
         return ResponseEntity.ok(response);
     }
 }

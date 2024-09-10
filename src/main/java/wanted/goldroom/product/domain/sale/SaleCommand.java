@@ -22,10 +22,16 @@ public class SaleCommand {
         }
     }
 
-    public record DetailSalesOrders(
+    public record DetailSalesOrderList(
         String userToken,
         int size,
         LocalDateTime cursor
+    ) {
+
+    }
+
+    public record DetailSalesOrder(
+        String orderNo
     ) {
 
     }
