@@ -32,7 +32,7 @@ public class SaleInfo {
         LocalDateTime createdAt,
         String seller,
         String status,
-        Item.Type type,
+        String type,
         double saleQuantity,
         int amount
     ) {
@@ -42,7 +42,7 @@ public class SaleInfo {
                 sale.getCreatedAt(),
                 sale.getSeller(),
                 sale.getStatus().getDescription(),
-                sale.getItem().getType(),
+                sale.getItem().getType().getProduct(),
                 sale.getSaleQuantity(),
                 sale.getAmount());
         }

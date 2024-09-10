@@ -38,7 +38,7 @@ public class SaleController {
         @RequestParam(name = "userToken") String userToken,
         @RequestParam(required = false, defaultValue = "10") int size,
         @RequestParam(required = false) LocalDateTime cursor) {
-        SaleCommand.DetailSalesOrders command = mapper.of(userToken, size, cursor);
+        SaleCommand.DetailSalesOrderList command = mapper.of(userToken, size, cursor);
         CustomSlice<SaleInfo.DetailSaleOrderList> info = saleFacade.detailsSaleOrders(command);
         var response = info.map(SaleDto.DetailsSaleOrderListResponse::from);
         return ResponseEntity.ok(response);
