@@ -33,4 +33,8 @@ public class SaleFacade {
     public SaleInfo.DetailSaleOrder detailsSaleOrder(SaleCommand.DetailSalesOrder command) {
         return saleService.detailsSale(command);
     }
+
+    public void deleteSaleOrder(SaleCommand.DeleteSalesOrder command) {
+        saleService.deleteSale(command);
+    }
 }

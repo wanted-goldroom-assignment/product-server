@@ -35,4 +35,11 @@ public class SaleCommand {
     ) {
 
     }
+
+    public record DeleteSalesOrder(
+        String orderNo,
+        String userToken
+    ) {
+
+    }
 }

@@ -3,6 +3,7 @@ package wanted.goldroom.product.interfaces.sale;
 import java.time.LocalDateTime;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,5 +52,13 @@ public class SaleController {
         SaleInfo.DetailSaleOrder info = saleFacade.detailsSaleOrder(command);
         SaleDto.DetailsSaleOrderResponse response = mapper.of(info);
         return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/history")
+    public ResponseEntity<Void> deleteSalesOrder(
+        @RequestBody @Valid SaleDto.DeleteSaleOrderRequest request) {
+        SaleCommand.DeleteSalesOrder command = mapper.of(request);
+        saleFacade.deleteSaleOrder(command);
+        return ResponseEntity.noContent().build();
     }
 }

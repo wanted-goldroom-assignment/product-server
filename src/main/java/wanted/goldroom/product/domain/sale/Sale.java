@@ -64,4 +64,8 @@ public class Sale {
         this.createdAt = LocalDateTime.now();
         this.item = item;
     }
+
+    public boolean validateSeller(String userToken) {
+        return this.seller.equals(userToken);
+    }
 }

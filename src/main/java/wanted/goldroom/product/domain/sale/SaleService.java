@@ -11,4 +11,6 @@ public interface SaleService {
     CustomSlice<SaleInfo.DetailSaleOrderList> detailsSaleList(SaleCommand.DetailSalesOrderList command);
 
     SaleInfo.DetailSaleOrder detailsSale(SaleCommand.DetailSalesOrder command);
+
+    void deleteSale(SaleCommand.DeleteSalesOrder command);
 }

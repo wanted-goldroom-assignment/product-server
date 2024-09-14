@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import wanted.goldroom.product.domain.exception.ErrorCode;
+import wanted.goldroom.product.domain.exception.ForbiddenException;
 import wanted.goldroom.product.domain.item.Item;
 import wanted.goldroom.product.domain.price.Price;
 import wanted.goldroom.product.infrastructure.common.util.CustomSlice;
@@ -31,5 +33,15 @@ public class SaleServiceImpl implements SaleService {
     @Override
     public SaleInfo.DetailSaleOrder detailsSale(SaleCommand.DetailSalesOrder command) {
         return saleReader.findSaleDetails(command.orderNo());
+    }
+
+    @Override
+    public void deleteSale(SaleCommand.DeleteSalesOrder command) {
+        Sale sale = saleReader.findByOrderNo(command.orderNo());
+        if (sale.validateSeller(command.userToken())) {
+            saleStore.delete(sale, command.userToken());
+        } else {
+            throw new ForbiddenException(ErrorCode.ITEM_FORBIDDEN);
+        }
     }
 }

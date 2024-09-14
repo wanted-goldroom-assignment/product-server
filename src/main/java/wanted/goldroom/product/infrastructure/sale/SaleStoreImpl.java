@@ -15,4 +15,9 @@ public class SaleStoreImpl implements SaleStore {
     public Sale store(Sale sale) {
         return saleRepository.save(sale);
     }
+
+    @Override
+    public void delete(Sale sale, String userToken) {
+        saleRepository.delete(sale);
+    }
 }
