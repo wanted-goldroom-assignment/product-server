@@ -11,6 +11,7 @@ public enum ErrorCode {
 
     // ITEM
     NOT_FOUND_ITEM("상품을 찾을 수 없습니다."),
+    ITEM_FORBIDDEN("상품에 대한 권한이 없습니다."),
 
     // PRICE
     NOT_FOUND_PRICE("가격정보를 찾을 수 없습니다."),

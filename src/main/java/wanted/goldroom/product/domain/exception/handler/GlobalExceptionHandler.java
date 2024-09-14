@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import lombok.extern.slf4j.Slf4j;
 import wanted.goldroom.product.domain.exception.BadRequestException;
 import wanted.goldroom.product.domain.exception.ErrorResponse;
+import wanted.goldroom.product.domain.exception.ForbiddenException;
 import wanted.goldroom.product.domain.exception.InternalServerException;
 import wanted.goldroom.product.domain.exception.NotFoundException;
 
@@ -36,6 +37,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleBadRequestException(BadRequestException e) {
         return ResponseEntity.badRequest()
             .body(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getErrorCode().getMessage()));
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorResponse> handleForbiddenException(ForbiddenException e) {
+        return ResponseEntity.badRequest()
+            .body(new ErrorResponse(HttpStatus.NO_CONTENT.value(), e.getErrorCode().getMessage()));
     }
 
     @ExceptionHandler(NotFoundException.class)
