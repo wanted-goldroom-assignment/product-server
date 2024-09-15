@@ -58,4 +58,11 @@ public class SaleDto {
     ) {
 
     }
+
+    public record DeleteSaleOrderRequest(
+        String orderNo,
+        String userToken
+    ) {
+
+    }
 }

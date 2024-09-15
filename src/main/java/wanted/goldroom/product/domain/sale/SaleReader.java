@@ -9,4 +9,6 @@ public interface SaleReader {
     CustomSlice<SaleInfo.DetailSaleOrderList> findAllDetails(String userToken, int size, LocalDateTime cursor);
 
     SaleInfo.DetailSaleOrder findSaleDetails(String orderNo);
+
+    Sale findByOrderNo(String orderNo);
 }

@@ -38,4 +38,10 @@ public class SaleReaderImpl implements SaleReader {
             .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_ORDER));
         return new SaleInfo.DetailSaleOrder(sale);
     }
+
+    @Override
+    public Sale findByOrderNo(String orderNo) {
+        return saleRepository.findByOrderNo(orderNo)
+            .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_ORDER));
+    }
 }

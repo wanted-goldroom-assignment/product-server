@@ -24,4 +24,6 @@ public interface SaleDtoMapper {
     SaleCommand.DetailSalesOrder of(String orderNo);
 
     SaleDto.DetailsSaleOrderResponse of(SaleInfo.DetailSaleOrder info);
+
+    SaleCommand.DeleteSalesOrder of(SaleDto.DeleteSaleOrderRequest request);
 }
